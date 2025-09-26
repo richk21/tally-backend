@@ -23,10 +23,12 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(express.json());
 
 app.use('/api/surveys', surveyRoutes);
 app.use('/api/localities', localitiesRoutes);
 
 setupSwagger(app);
+
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Server running`));
